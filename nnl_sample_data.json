@@ -1,0 +1,54 @@
+{
+  "teams": [
+    {
+      "id": "team-1",
+      "name": "Lagos Stars",
+      "stadium": "National Stadium Lagos",
+      "founded": 1965,
+      "logo_url": "",
+      "city": "Lagos"
+    },
+    {
+      "id": "team-2",
+      "name": "Kano Rovers",
+      "stadium": "Kano City Stadium",
+      "founded": 1972,
+      "logo_url": "",
+      "city": "Kano"
+    }
+  ],
+  "players": [
+    {
+      "id": "player-1",
+      "name": "Chukwu Okeke",
+      "first_name": "Chukwu",
+      "last_name": "Okeke",
+      "position": "CM",
+      "date_of_birth": "2003-05-12",
+      "nationality": "Nigeria",
+      "team_id": "team-1",
+      "market_value": 120000,
+      "top_talent": true,
+      "rating": 7,
+      "photo_url": "",
+      "contract_until": "2026-06-30",
+      "agent": ""
+    },
+    {
+      "id": "player-2",
+      "name": "Emeka Nwosu",
+      "first_name": "Emeka",
+      "last_name": "Nwosu",
+      "position": "ST",
+      "date_of_birth": "2002-02-03",
+      "nationality": "Nigeria",
+      "team_id": "team-2",
+      "market_value": 90000,
+      "top_talent": false,
+      "rating": 6,
+      "photo_url": "",
+      "contract_until": "2025-05-31",
+      "agent": ""
+    }
+  ]
+}
