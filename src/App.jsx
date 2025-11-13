@@ -216,8 +216,14 @@ export default function App() {
 
               <div>
                 {selectedPlayer==='__new__' && <PlayerEditor teams={teams} onSave={addOrUpdatePlayer} onCancel={() => setSelectedPlayer(null)} uploadPhoto={uploadPhoto} />}
-                {selectedPlayer && selectedPlayer !== '__new__' && !selectedPlayer.endsWith('__edit__') && (()=>{{
-                  const pl = players.find(x=>x.id===selectedPlayer)
+{selectedPlayer && selectedPlayer !== '__new__' && !selectedPlayer.endsWith('__edit__') ? (() => {
+  const pl = players.find(x => x.id === selectedPlayer);
+  if (!pl) return <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">Player not found</div>;
+  return (<PlayerEditor player={pl} teams={teams} onSave={addOrUpdatePlayer} onCancel={() => setSelectedPlayer(null)} uploadPhoto={uploadPhoto} />);
+})() : null}  const pl = players.find(x => x.id === selectedPlayer)
+  if (!pl) return <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">Player not found</div>
+  return <PlayerEditor player={pl} teams={teams} onSave={addOrUpdatePlayer} onCancel={() => setSelectedPlayer(null)} uploadPhoto={uploadPhoto} />
+})() : null}                  const pl = players.find(x=>x.id===selectedPlayer)
                   if(!pl) return <div className='bg-white dark:bg-gray-800 p-4 rounded shadow'>Player not found</div>
                   return (
                     <div className='bg-white dark:bg-gray-800 p-4 rounded shadow'>
@@ -236,16 +242,27 @@ export default function App() {
                   )
                 }})()}
 
-                {selectedPlayer && selectedPlayer.endsWith('__edit__') && (()=>{{
-                  const id = selectedPlayer.replace('__edit__','')
+{selectedPlayer && selectedPlayer.endsWith('__edit__') ? (() => {
+  const id = selectedPlayer.replace('__edit__','');
+  const pl = players.find(x => x.id === id);
+  if (!pl) return <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">Player not found</div>;
+  return (<PlayerEditor player={pl} teams={teams} onSave={addOrUpdatePlayer} onCancel={() => setSelectedPlayer(null)} uploadPhoto={uploadPhoto} />);
+})() : null}  const id = selectedPlayer.replace('__edit__','')
+  const pl = players.find(x => x.id === id)
+  if (!pl) return <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">Player not found</div>
+  return <PlayerEditor player={pl} teams={teams} onSave={addOrUpdatePlayer} onCancel={() => setSelectedPlayer(null)} uploadPhoto={uploadPhoto} />
+})() : null}                  const id = selectedPlayer.replace('__edit__','')
                   const pl = players.find(x=>x.id===id)
                   if(!pl) return <div className='bg-white dark:bg-gray-800 p-4 rounded shadow'>Player not found</div>
                   return <PlayerEditor player={pl} teams={teams} onSave={addOrUpdatePlayer} onCancel={() => setSelectedPlayer(null)} uploadPhoto={uploadPhoto} />
                 }})()}
 
                 {selectedTeam==='__new__' && <TeamEditor onSave={addOrUpdateTeam} onCancel={() => setSelectedTeam(null)} />}
-                {selectedTeam && selectedTeam !== '__new__' && !selectedTeam.endsWith('__edit__') && (()=>{{
-                  const tm = teams.find(x=>x.id===selectedTeam)
+{selectedTeam && selectedTeam !== '__new__' && !selectedTeam.endsWith('__edit__') ? (() => {
+  const tm = teams.find(x => x.id === selectedTeam);
+  if (!tm) return <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">Team not found</div>;
+  return (<TeamEditor team={tm} onSave={addOrUpdateTeam} onCancel={() => setSelectedTeam(null)} />);
+})() : null}                  const tm = teams.find(x=>x.id===selectedTeam)
                   if(!tm) return <div className='bg-white dark:bg-gray-800 p-4 rounded shadow'>Team not found</div>
                   return (
                     <div className='bg-white dark:bg-gray-800 p-4 rounded shadow'>
@@ -264,8 +281,12 @@ export default function App() {
                   )
                 }})()}
 
-                {selectedTeam selectedTeam && selectedTeam.endsWith('__edit__') andselectedTeam && selectedTeam.endsWith('__edit__') and selectedTeam.endsWith('__edit__') selectedTeam && selectedTeam.endsWith('__edit__') andselectedTeam && selectedTeam.endsWith('__edit__') and (()=>{{
-                  const id = selectedTeam.replace('__edit__','')
+{selectedTeam && selectedTeam.endsWith('__edit__') ? (() => {
+  const id = selectedTeam.replace('__edit__','');
+  const tm = teams.find(x => x.id === id);
+  if (!tm) return <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">Team not found</div>;
+  return (<TeamEditor team={tm} onSave={addOrUpdateTeam} onCancel={() => setSelectedTeam(null)} />);
+})() : null}                  const id = selectedTeam.replace('__edit__','')
                   const tm = teams.find(x=>x.id===id)
                   if(!tm) return <div className='bg-white dark:bg-gray-800 p-4 rounded shadow'>Team not found</div>
                   return <TeamEditor team={tm} onSave={addOrUpdateTeam} onCancel={() => setSelectedTeam(null)} />
